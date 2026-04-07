@@ -1,0 +1,92 @@
+{
+  "info": {
+    "name": "Blog API - Week 9 Capstone",
+    "description": "Complete RESTful API for Blog platform with Auth & CRUD",
+    "schema": "[https://schema.getpostman.com/json/collection/v2.1.0/collection.json](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)"
+  },
+  "item": [
+    {
+      "name": "1. Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": { "raw": "http://localhost:5000/api/health", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "health"] }
+      }
+    },
+    {
+      "name": "2. Register User",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n    \"username\": \"johndoe\",\n    \"password\": \"password123\"\n}" },
+        "url": { "raw": "http://localhost:5000/api/auth/register", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "auth", "register"] }
+      }
+    },
+    {
+      "name": "3. Login (Get JWT)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n    \"username\": \"johndoe\",\n    \"password\": \"password123\"\n}" },
+        "url": { "raw": "http://localhost:5000/api/auth/login", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "auth", "login"] }
+      }
+    },
+    {
+      "name": "4. Get All Posts",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": { "raw": "http://localhost:5000/api/posts", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "posts"] }
+      }
+    },
+    {
+      "name": "5. Get Post By ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": { "raw": "http://localhost:5000/api/posts/1", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "posts", "1"] }
+      }
+    },
+    {
+      "name": "6. Create Post (Protected)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer <PASTE_YOUR_TOKEN_HERE>" }
+        ],
+        "body": { "mode": "raw", "raw": "{\n    \"title\": \"My First Auth Post\",\n    \"content\": \"Learning Node.js and Express is amazing!\"\n}" },
+        "url": { "raw": "http://localhost:5000/api/posts", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "posts"] }
+      }
+    },
+    {
+      "name": "7. Add Comment",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n    \"text\": \"This is a great post!\",\n    \"author\": \"Jane Doe\"\n}" },
+        "url": { "raw": "http://localhost:5000/api/posts/1/comments", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "posts", "1", "comments"] }
+      }
+    },
+    {
+      "name": "8. Update Post (Protected)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer <PASTE_YOUR_TOKEN_HERE>" }
+        ],
+        "body": { "mode": "raw", "raw": "{\n    \"title\": \"Updated Title\"\n}" },
+        "url": { "raw": "http://localhost:5000/api/posts/1", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "posts", "1"] }
+      }
+    },
+    {
+      "name": "9. Delete Post (Protected)",
+      "request": {
+        "method": "DELETE",
+        "header": [{ "key": "Authorization", "value": "Bearer <PASTE_YOUR_TOKEN_HERE>" }],
+        "url": { "raw": "http://localhost:5000/api/posts/1", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "posts", "1"] }
+      }
+    }
+  ]
+}
