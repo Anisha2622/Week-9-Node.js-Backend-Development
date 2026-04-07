@@ -5,7 +5,7 @@ require('dotenv').config();
 
 // Route & Middleware Imports
 const postRoutes = require('./src/routes/postRoutes');
-const errorHandler = require('./src/middleware/errorHandler');
+const errorHandler = require('./src/middleware/errorhandler');
 
 const app = express();
 
